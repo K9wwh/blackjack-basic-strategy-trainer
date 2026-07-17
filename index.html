@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack Basic Strategy Trainer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="table">
+    <h1>Basic Strategy Trainer</h1>
+
+    <section class="hand-area">
+      <p class="hand-label">Dealer shows</p>
+      <div id="dealer-cards" class="cards"></div>
+    </section>
+
+    <section class="hand-area">
+      <p class="hand-label">Your hand <span id="hand-value" class="hand-value"></span></p>
+      <div id="player-cards" class="cards"></div>
+    </section>
+
+    <p id="feedback" class="feedback">What's the correct play?</p>
+
+    <div class="actions">
+      <button data-action="H">Hit</button>
+      <button data-action="S">Stand</button>
+      <button data-action="D">Double</button>
+      <button data-action="P" id="btn-split">Split</button>
+      <button data-action="R">Surrender</button>
+    </div>
+
+    <div class="statusbar">
+      <span id="stats">Hands played: 0</span>
+      <button id="btn-next" class="secondary">New hand</button>
+    </div>
+  </main>
+
+  <script src="strategy.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
