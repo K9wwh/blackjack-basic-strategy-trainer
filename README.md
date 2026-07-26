@@ -1,5 +1,7 @@
 # Blackjack Basic Strategy Trainer
 
+**▶ [Try it live](https://k9wwh.github.io/blackjack-basic-strategy-trainer/)** — runs entirely in your browser, nothing to install.
+
 A small, dependency-free web app for drilling blackjack basic strategy. It deals you a starting hand and a dealer upcard, asks for the correct play (Hit, Stand, Double, Split, or Surrender), grades your answer against an embedded basic strategy chart, and tracks your accuracy as you go.
 
 Built with vanilla JavaScript, HTML, and CSS — no frameworks, no build step, no network requests.
