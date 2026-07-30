@@ -1,63 +1,21 @@
-# Blackjack Basic Strategy Trainer
+# Blackjack Basic Strategy Trainer / 21 点基本策略训练器
 
-**▶ [Try it live](https://k9wwh.github.io/blackjack-basic-strategy-trainer/)** — runs entirely in your browser, nothing to install.
+**▶ [Try it live / 在线试玩](https://k9wwh.github.io/blackjack-basic-strategy-trainer/)** — runs entirely in your browser, nothing to install. 完全在浏览器中运行，无需安装。
 
-A small, dependency-free web app for drilling blackjack basic strategy. It deals you a starting hand and a dealer upcard, asks for the correct play (Hit, Stand, Double, Split, or Surrender), grades your answer against an embedded basic strategy chart, and tracks your accuracy as you go.
+📖 **Docs:** [English](README.en.md) · [中文](README.cn.md)
 
-Built with vanilla JavaScript, HTML, and CSS — no frameworks, no build step, no network requests.
+---
 
-## Rule set the strategy tables assume
+A small, dependency-free web app for drilling blackjack basic strategy. It deals a starting hand plus a dealer upcard, asks for the correct play (Hit, Stand, Double, Split, or Surrender), grades your answer against an embedded strategy chart, and tracks your accuracy. Vanilla JavaScript, HTML, and CSS — no frameworks, no build step, no network requests.
 
-The embedded charts are the classic basic strategy for:
+一个小巧、零依赖的网页应用，用来反复练习 21 点基本策略 (basic strategy)。它会发一手起手牌和一张庄家明牌 (dealer upcard)，问你正确的打法（要牌 Hit、停牌 Stand、加倍 Double、分牌 Split 或投降 Surrender），用内置策略表给你评分并统计正确率。原生 JavaScript、HTML 和 CSS — 无框架、无构建步骤、无网络请求。
 
-- **4–8 decks**
-- **Dealer stands on soft 17 (S17)**
-- **Double after split allowed (DAS)**
-- **Late surrender available**
+**Run locally / 本地运行:** open `index.html` in any modern browser, or serve the folder with `python -m http.server 8000`.
 
-If you play under different rules (e.g. dealer hits soft 17, no surrender), a handful of edge cases will differ from these tables.
+**Rule set the strategy tables assume / 策略表所假设的规则集:** 4–8 decks, dealer stands on soft 17 (S17), double after split allowed (DAS), late surrender. 4–8 副牌、庄家软 17 停牌 (S17)、允许分牌后加倍 (DAS)、可晚投降。
 
-All scenarios are two-card starting hands, so "Double" and "Surrender" always mean the outright action — the "otherwise hit/stand" fallback cases never arise.
+> **Disclaimer:** a training tool for learning basic strategy, not gambling advice. Basic strategy minimizes the house edge but does not eliminate it. If you gamble, do so legally and responsibly.
+>
+> **免责声明：** 这是学习基本策略的训练工具，不是赌博建议。基本策略只能降低庄家优势 (house edge)，无法消除它。如果你要赌博，请在合法的前提下理性对待。
 
-## How to run
-
-No install or build required:
-
-- **Simplest:** open `index.html` directly in any modern browser.
-- **Or serve it** with any static file server, e.g.:
-
-  ```sh
-  # Python
-  python -m http.server 8000
-
-  # Node
-  npx serve .
-  ```
-
-  Then browse to the printed local address.
-
-## Features
-
-- **Weighted scenario dealing** — instead of dealing like a real shoe (where pairs and soft hands are rare), scenarios are weighted roughly 25% pairs, 25% soft hands, 50% hard hands so you actually get practice on the tricky rows of the chart.
-- **Instant grading** — every answer is checked against the embedded strategy tables, with feedback naming your hand and the dealer upcard (e.g. "hard 16 vs 10").
-- **Accuracy tracking** — running correct/total count and percentage for the session.
-- **Correct hand evaluation** — aces are counted as 11 and downgraded to 1 as needed; hands are classified as hard, soft, or pair, and the Split button is only enabled on actual pairs.
-- **Auto-advance** — a new hand is dealt automatically after each answer (with a longer pause after a mistake so you can read the correction), plus a "New hand" button to skip ahead.
-- **Zero dependencies** — three small files (`index.html`, `strategy.js`, `app.js`) plus a stylesheet; works offline.
-
-## Project structure
-
-| File          | Purpose                                                        |
-| ------------- | -------------------------------------------------------------- |
-| `index.html`  | Page layout: dealer/player card areas, action buttons, stats    |
-| `strategy.js` | Embedded hard/soft/pair strategy tables and the lookup function |
-| `app.js`      | Dealing, hand evaluation, rendering, grading, and stats         |
-| `style.css`   | Card-table styling                                              |
-
-## Disclaimer
-
-This is a **training tool for learning basic strategy**, not gambling advice. Basic strategy minimizes the house edge but does not eliminate it — blackjack remains a negative-expectation game for the player. Nothing here encourages gambling or guarantees any outcome. If you gamble, do so legally and responsibly.
-
-## License
-
-MIT — see [LICENSE](LICENSE).
+License / 许可证: MIT — see [LICENSE](LICENSE).
